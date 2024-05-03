@@ -1,6 +1,8 @@
 package com.consultorio.odontologico.logica;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,13 +12,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Responsable extends Persona{
-    private int id_responsable;
+@Entity
+public class Responsable extends Persona implements Serializable{
+    //private int id_responsable;
     private String tipo_rest;
 
-    public Responsable(int id_responsable, String tipo_rest, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
-        super(dni, nombre, apellido, telefono, direccion, fecha_nac);
-        this.id_responsable = id_responsable;
+    public Responsable(String tipo_rest, int id, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+        super(id, dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.tipo_rest = tipo_rest;
     }
     
